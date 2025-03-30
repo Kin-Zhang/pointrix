@@ -87,7 +87,7 @@ class GaussianFlow(BaseModel):
         
         return loss_l1
     
-    def get_loss_dict(self, render_results, batch) -> dict:
+    def get_loss_dict(self, render_results, batch, step) -> dict:
         gt_images = torch.stack(
             [batch[i]["image"].to(self.device) for i in range(len(batch))],
             dim=0
