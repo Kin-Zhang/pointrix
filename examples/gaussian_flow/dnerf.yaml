@@ -106,7 +106,7 @@ trainer:
     batch_size: 1
     num_workers: 0
     dataset:
-      data_path: "/NASdata/clz/data/d-nerf/data/lego"
+      data_path: "data/dnerf/lego"
       cached_observed_data: True
       scale: 1.0
       white_bg: True

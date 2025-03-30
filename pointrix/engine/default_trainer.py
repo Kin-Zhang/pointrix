@@ -109,6 +109,7 @@ class DefaultTrainer(BaseTrainer):
         if model_path is None:
             model_path = os.path.join(self.exp_dir,
                                 "chkpnt" + str(self.global_step) + ".pth")
+        print(f"--> Loading model from {model_path}")
         model_path = Path(model_path)
         self.load_model(model_path)
         self.model.to(self.device)

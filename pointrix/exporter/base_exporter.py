@@ -150,12 +150,13 @@ class MetricExporter(BaseModule):
         progress_logger = ProgressLogger(description='Extracting metrics', suffix='iters/s')
         progress_logger.add_task(f'Metric', f'Extracting metrics', val_dataset_size)
         os.makedirs(os.path.join(output_path, 'test_view'), exist_ok=True)
-
+        print(f"--> Testing {val_dataset_size} images, Saving to {output_path}")
         with progress_logger.progress as progress:
             for i in range(0, val_dataset_size):
                 batch = self.datapipeline.next_val(i)
                 render_results = self.model(batch, training=False)
-                image_name = os.path.basename(batch[0]['camera'].rgb_file_name)
+                # FIXME(Qingwen): hardcode for the saving image type here. Maybe not good.
+                image_name = os.path.basename(batch[0]['camera'].rgb_file_name+".png")
                 gt = torch.clamp(batch[0]['image'].to("cuda").float(), 0.0, 1.0)
                 image = torch.clamp(
                     render_results['rgb'], 0.0, 1.0).squeeze()
