@@ -93,7 +93,7 @@ class BaseModel(BaseModule):
             return render_results
         return render_dict
 
-    def get_loss_dict(self, render_results, batch) -> dict:
+    def get_loss_dict(self, render_results, batch, step) -> dict:
         """
         Get the loss dictionary.
 
@@ -141,6 +141,7 @@ class BaseModel(BaseModule):
                           "uv_points": render_results['uv_points'],
                           "visibility": render_results['visibility'],
                           "radii": render_results['radii'],
+                          "num_points": self.point_cloud.position.shape[0],
                           "white_bg": white_bg}
         return optimizer_dict
 

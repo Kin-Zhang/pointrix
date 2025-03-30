@@ -31,6 +31,7 @@
 </div>
 
 ## News
+- 2024-10-23: We add basic viser support for pointrix. We will update documentation soon.
 - 2024-09-11: We have included instructions for hyperparameter search in the documentation.
 - 2024-09-02: We support all hyperparameter turning based on wandb, including "**random**", "**grid**" and "**bayes**" sweep configuration.
 - 2024-08-18: We have released Pointrix: v1.0
@@ -123,6 +124,14 @@ python launch.py --config ./configs/colmap.yaml trainer.datapipeline.dataset.dat
 
 python launch.py --config ./configs/colmap.yaml trainer.datapipeline.dataset.data_path=your_data_path trainer.datapipeline.dataset.scale=0.5 trainer.output_path=your_log_path trainer.controller.normalize_grad=True trainer.model.renderer.name=GsplatRender
 ```
+You can visualize the training process of rendering by enabling webgui (viser):
+```bash
+trainer.enable_gui=True
+```
+
+
+![2024-10-29 17-07-13屏幕截图](https://github.com/user-attachments/assets/1ec5270e-cf83-4fe9-80a9-8dc10c08ef67)
+
 The scale should be set as 0.25 for mipnerf 360 datasets.
 
 For other colmap dataset which do not need to downsample:
@@ -230,15 +239,6 @@ python launch.py --config config.yaml trainer.datapipeline.dataset.data_path=you
 ```
 
 
-
-## Release Plans
-- [x] Nerf_synthetic dataset (this week).
-- [x] Dust3r initialization (this week).
-- [x] Mesh exstraction (this week).
-- [x] Introduction video (this week)
-- [x] reformat the document (this week)
-- [ ] Dynamic Gaussian Project(next week).
-
 Welcome to discuss with us and submit PR on new ideas and methods.
 
 ## Acknowledgment
@@ -252,7 +252,8 @@ Thanks to the developers and contributors of the following open-source repositor
 - [detectron2](https://github.com/facebookresearch/detectron2): Detectron2 is Facebook AI Research's next generation library that provides state-of-the-art detection and segmentation algorithms. 
 - [DN-Splatter](https://github.com/maturk/dn-splatter): Depth and Normal Priors for Gaussian Splatting and Meshing
 - [GOF](https://github.com/autonomousvision/gaussian-opacity-fields): Efficient and Compact Surface Reconstruction in Unbounded Scenes
-
+- [Viser](https://viser.studio/latest/): A library for interactive 3D visualization in Python.
+- [2D-GS-Viser-Viewer](https://github.com/hwanhuh/2D-GS-Viser-Viewer): Simple Viser Viewer for 2D Gaussian Splatting for Geometrically Accurate Radiance Fields.
 
 This is project is licensed under Apache License. However, if you use MSplat or the original 3DGS kernel in your work, please follow their license.
 
