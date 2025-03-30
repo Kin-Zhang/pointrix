@@ -1,7 +1,7 @@
 name: "dnerf-lego"
 
 trainer:
-  output_path: "/NASdata/clz/log/gf_tes"
+  output_path: "wandb/gf_tes"
   max_steps: 10000
   val_interval: 5000
   training: True
